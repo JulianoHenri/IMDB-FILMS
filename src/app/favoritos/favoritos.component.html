@@ -1,0 +1,27 @@
+<div>
+    <table class="table table-striped"s>
+    <thead>
+        <tr>
+          <th scope="col">Title</th>
+          <th scope="col">Actors</th>
+          <th scope="col">Awards</th>
+          <th scope="col">Director</th>
+          <th scope="col">Genre</th>
+          <th scope="col">imdbRating</th>
+          <th scope="col" style="text-align: end;">Poster</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let filme of this.listaFavoritos">
+          <td>{{filme.Title}}</td>
+          <td>{{filme.Actors}}</td>
+          <td>{{filme.Awards}}</td>
+          <td>{{filme.Director}}</td>
+          <td>{{filme.Genre}}</td>
+          <td>{{filme.imdbRating}}</td>
+          <td><img [src]="filme?.Poster" class="rounded float-end" alt="..." style="max-width: 40%;"></td>
+        </tr>
+      </tbody>
+    </table>
+</div>
+

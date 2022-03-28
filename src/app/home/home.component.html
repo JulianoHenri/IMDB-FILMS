@@ -1,0 +1,45 @@
+<div class="container-sm">
+    <div>
+        <p class="text-center fs-3 fw-bold">IMDB Search</p>
+        <p class="text-center">Digite o nome do filme para obter informções</p>
+    </div>
+    <div (keyup.enter)="this.buscarImdb(this.search)">
+        <div class="row justify-content-sm-center">
+            <div class="col-md-6">
+                <label class="visually-hidden" for="search">Search</label>
+                <input type="text" class="form-control" placeholder="Search" [(ngModel)]="search">
+            </div>
+            <div class="col col-lg-1">
+                <button type="submit" (click)="this.buscarImdb(this.search)" class="btn btn-primary">Submit</button>
+            </div>
+            <div class="col col-lg-1">
+                <button type="submit" (click)="this.resetarPesquisa()" class="btn btn-primary">Reset</button>
+            </div>
+
+        </div>
+    </div>
+    <div class="row justify-content-sm-center spaceTop">
+        <div class="col-md-8">
+            <div>
+                <p class="fs-3 fw-bold">{{filme?.Title}}</p>
+                <p class="">{{filme?.Plot}}</p>
+            </div>
+            <div>
+                <p class="fs-5 fw-bold">Actors: {{filme?.Actors}}</p>
+            </div>
+            <div>
+                <p class="fs-5 fw-bold">Review: {{filme?.imdbRating}}</p>
+                
+            </div>
+            <div class="col-lg-6">
+                <button type="submit" *ngIf="!isFavoritado" (click)="adicionarFavoritos()" class="btn btn-primary">Favorite <i class="bi bi-heart"></i></button>
+            </div>
+            <div class="col-lg-6">
+                <button type="submit" *ngIf="isFavoritado"  (click)="removerFavoritos()" class="btn btn-primary">Remove <i class="bi bi-heart-fill"></i></button>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <img [src]="filme?.Poster ? filme?.Poster : '../../assets/poster.jpg' " class="rounded mx-auto d-block" alt="..." style="max-width: 90%;">
+        </div>
+    </div>
+</div>
